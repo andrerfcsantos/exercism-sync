@@ -9,7 +9,7 @@ class SqueakyClean {
                 continue;
             }
 
-            if (ch == '-' && i < identifier.length() + 1) {
+            if (ch == '-' && i < identifier.length() - 1) {
                 char next = identifier.charAt(i + 1);
                 char nextUpper = Character.toUpperCase(next);
                 clean.append(nextUpper);
