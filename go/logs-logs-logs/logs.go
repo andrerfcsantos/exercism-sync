@@ -4,15 +4,16 @@ import "strings"
 
 // Application identifies the application emitting the given log.
 func Application(log string) string {
-	rs := []rune(log)
-
-    for _, r := range rs {
-        switch r {
-            case '❗': return "recommendation"
-        	case '🔍': return "search"
-        	case '☀': return "weather"
-        }
-    }
+	for _, r := range log {
+		switch r {
+		case '❗':
+			return "recommendation"
+		case '🔍':
+			return "search"
+		case '☀':
+			return "weather"
+		}
+	}
 	return "default"
 }
 
