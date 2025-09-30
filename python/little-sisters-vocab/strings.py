@@ -59,4 +59,3 @@ def adjective_to_verb(sentence, index):
     """
     sentence = sentence.strip('.')
     return sentence.split(' ')[index] + 'en'
-    
