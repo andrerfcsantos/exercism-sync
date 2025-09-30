@@ -6,15 +6,13 @@ majorityFinder colors =
               |> Bag.fromList
               |> occurrenceList
               |> List.sortBy at2
-              |> List.reverse
   
   n = List.size colors
 
   match freqList with 
     []                                                             -> None
-    [(m1, f)]                         | f > (n / 2)                -> Some m1
-                                      | otherwise                  -> None
-    [(m1, f1), (m2, f2)] ++ remainder | (f1 != f2) && (f1 > (n/2)) -> Some m1
+    [(m1, f)]                                                      -> Some m1
+    remainder ++ [(m2, f2), (m1, f1)] | (f1 != f2) && (f1 > (n/2)) -> Some m1
                                       | otherwise                  -> None
 
 
