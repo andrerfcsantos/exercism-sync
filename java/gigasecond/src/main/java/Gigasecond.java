@@ -8,7 +8,7 @@ public class Gigasecond {
     private LocalDateTime t;
 
     public Gigasecond(LocalDate moment) {
-        t = moment.atStartOfDay();
+        this(moment.atStartOfDay());
     }
 
     public Gigasecond(LocalDateTime moment) {
@@ -16,6 +16,6 @@ public class Gigasecond {
     }
 
     public LocalDateTime getDateTime() {
-        return t.plus(1000000000, ChronoUnit.SECONDS);
+        return t.plus(1_000_000_000, ChronoUnit.SECONDS);
     }
 }
