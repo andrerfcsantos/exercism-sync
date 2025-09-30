@@ -1,4 +1,4 @@
-from typing import Sequence, List
+from typing import Sequence
 
 
 class HighScores:
@@ -11,5 +11,5 @@ class HighScores:
     def personal_best(self) -> int:
         return max(self.scores)
 
-    def personal_top_three(self) -> List[int]:
+    def personal_top_three(self) -> list[int]:
         return sorted(self.scores, reverse=True)[:3]
