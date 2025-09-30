@@ -5,15 +5,7 @@ object Hamming {
             "left and right strands must be of equal length"
         }
 
-        var dist = 0
-
-        leftStrand.forEachIndexed { i, elem ->
-            if (elem != rightStrand[i]){
-                dist++
-            }
-        }
-
-        return dist
+        return leftStrand.zip(rightStrand).count { it.first != it.second }
     }
 
     fun compute2(leftStrand: String, rightStrand: String): Int {
