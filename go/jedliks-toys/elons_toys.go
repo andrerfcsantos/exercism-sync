@@ -43,8 +43,8 @@ func (car *Car) Drive() {
 }
 
 // CanFinish checks if a car is able to finish a certain track.
-func (car *Car) CanFinish(track Track) bool {
-	return track.distance <= (car.battery / car.batteryDrain * car.speed)
+func (car *Car) CanFinish(distance int) bool {
+	return distance <= (car.battery / car.batteryDrain * car.speed)
 }
 
 // DisplayDistance displays the distance the car is driven.
