@@ -1,0 +1,19 @@
+factorSounds : [(Nat, Text)]
+factorSounds = [
+    (3, "Pling"),
+    (5, "Plang"),
+    (7, "Plong")
+]
+
+defaultIfEmpty : Text -> Text -> Text
+defaultIfEmpty default txt = match txt with
+    "" -> default
+    txt -> txt
+
+convert : Nat -> Text
+convert n = List.filter (x -> (Nat.mod n (at1 x) == 0)) factorSounds
+                |> List.map at2
+                |> Text.join ""
+                |> defaultIfEmpty (Nat.toText n)
+
+
