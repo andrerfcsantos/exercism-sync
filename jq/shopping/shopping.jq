@@ -28,8 +28,8 @@
 (.ingredients | length),
 
 # Task 3: replace `null` with the appropriate expression
-(.ingredients | map(select(.item == "sugar")) | map(.amount.quantity) | add),
+(.ingredients | map(select(.item == "sugar") | .amount.quantity) | add),
 
 # Task 4: replace `null` with the appropriate expression
 # (no comma after the last filter)
-(.ingredients + .["optional ingredients"] | map(select(has("substitute"))) | map({(.item): .substitute }) | add)
+(.ingredients + .["optional ingredients"] | map(select(has("substitute")) | {(.item): .substitute }) | add)
