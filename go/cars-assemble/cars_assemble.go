@@ -1,4 +1,4 @@
-package numbers
+package cars
 
 // CalculateProductionRatePerHour for the assembly line, taking into account
 // its success rate
