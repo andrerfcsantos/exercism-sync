@@ -4,7 +4,7 @@ class LogLineParser
   end
 
   def message
-    @line.split(':', 2)[1].strip
+    @message ||= @line.split(':', 2)[1].strip
   end
 
   def log_level
