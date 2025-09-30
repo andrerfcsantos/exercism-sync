@@ -1,4 +1,4 @@
-// Package twofer provides a way to determine with you should sahre something
+// Package twofer provides a way to determine with you should share something
 package twofer
 
 import "fmt"
