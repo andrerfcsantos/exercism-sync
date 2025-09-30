@@ -1,0 +1,9 @@
+digits : Nat -> [Nat]
+digits = cases
+  0 -> []
+  n -> digits (Nat.div n  10) ++ [Nat.mod n 10]
+
+isArmstrongNumber : Nat -> Boolean
+isArmstrongNumber number =
+  ds = digits number
+  ds |> map (n -> Nat.pow n (size ds)) |> sum |> (==) number
