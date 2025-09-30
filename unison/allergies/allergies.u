@@ -12,5 +12,4 @@ allergicTo allergen score = Nat.isSetBit (Map.getOrElse 8 allergen allergensToBi
 
 list : Nat -> [Text]
 list score = indexed allergensList
-              |> filter (cases (_,idx) -> Nat.isSetBit idx score)
-              |> map at1
+              |> filterMap (cases (a,idx) -> if Nat.isSetBit idx score then Some(a) else None)
