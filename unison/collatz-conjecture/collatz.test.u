@@ -1,0 +1,47 @@
+collatzConjecture.test.ex1 = verify do
+  labeled "zero steps for one" do
+    expected = Some 0
+    actual = steps 1
+    label "expected" expected
+    label "actual" actual
+    ensureEqual expected actual
+
+collatzConjecture.test.ex2 = verify do
+  labeled "divide if even" do
+    expected = Some 4
+    actual = steps 16
+    label "expected" expected
+    label "actual" actual
+    ensureEqual expected actual
+
+collatzConjecture.test.ex3 = verify do
+  labeled "even and odd steps" do
+    expected = Some 9
+    actual = steps 12
+    label "expected" expected
+    label "actual" actual
+    ensureEqual expected actual
+
+collatzConjecture.test.ex4 = verify do
+  labeled "large number of even and odd steps" do
+    expected = Some 152
+    actual = steps 1000000
+    label "expected" expected
+    label "actual" actual
+    ensureEqual expected actual
+
+collatzConjecture.test.ex5 = verify do
+  labeled "zero is an error" do
+    expected = None
+    actual = steps 0
+    label "expected" expected
+    label "actual" actual
+    ensureEqual expected actual
+
+test> collatzConjecture.tests = join [
+  collatzConjecture.test.ex1,
+  collatzConjecture.test.ex2,
+  collatzConjecture.test.ex3,
+  collatzConjecture.test.ex4,
+  collatzConjecture.test.ex5
+]
