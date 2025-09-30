@@ -57,8 +57,7 @@ def reactor_efficiency(
         return 'orange'
     elif efficiency >= 30:
         return 'red'
-    else:
-        return 'black'
+    return 'black'
 
 
 def fail_safe(
@@ -83,5 +82,4 @@ def fail_safe(
         return 'LOW'
     elif criticality <= (threshold * 1.1):
         return 'NORMAL'
-    else:
-        return 'DANGER'
+    return 'DANGER'
