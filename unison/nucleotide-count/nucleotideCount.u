@@ -1,15 +1,15 @@
 nucleotideCountEmptyMap : Map Text Nat
 nucleotideCountEmptyMap = Map.fromList [("A", 0), ("C", 0), ("G", 0), ("T", 0)]
 
-addNucleotideToMap : Map Text Nat -> Char -> Map Text Nat
-addNucleotideToMap nucleotideCountMap nucleotide =
+addNucleotideToMap : Char -> Map Text Nat -> Map Text Nat
+addNucleotideToMap nucleotide nucleotideCountMap =
   Map.update (x -> Some(x + 1)) (Char.toText nucleotide) nucleotideCountMap
 
 nucleotideCounts : Text -> Optional (Map Text Nat)
 nucleotideCounts nucleotides = 
   ns = Text.toCharList nucleotides
   if List.all(n -> List.contains n [?A, ?G, ?C, ?T]) ns then
-    Some (List.foldLeft addNucleotideToMap nucleotideCountEmptyMap ns)
+    Some (List.foldRight addNucleotideToMap nucleotideCountEmptyMap ns)
   else
     None
 
