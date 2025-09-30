@@ -1,8 +1,8 @@
 use base
 
 abbreviate : Text -> Text
-abbreviate test = Text.split ?\s test
-                    |> List.map Text.toCharList
+abbreviate test = Text.toCharList test
+                    |> List.split (x -> ((x == ?-) || (x == ?\s)))
                     |> List.map (x -> List.filter (Char.ascii.isLetter) x)
                     |> Optional.mapOptional List.head
                     |> List.map Char.ascii.toUpper
