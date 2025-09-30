@@ -1,7 +1,5 @@
-use unicode_reverse::reverse_grapheme_clusters_in_place;
+use unicode_segmentation::UnicodeSegmentation;
 
 pub fn reverse(input: &str) -> String {
-    let mut string_copy: String = input.clone().to_string();
-    reverse_grapheme_clusters_in_place(&mut string_copy);
-    return string_copy;
+    return UnicodeSegmentation::graphemes(input, true).rev().collect();
 }
