@@ -9,15 +9,18 @@ import (
 // Distance computes the hamming distance between 2 strings of equal length
 func Distance(a, b string) (int, error) {
 	runesA, runesB := []rune(a), []rune(b)
-	dist := 0
+
 	if len(runesA) != len(runesB) {
 		return 0, errors.New("cannot compute hamming distance for strings with different lengths")
 	}
 
+	dist := 0
+    
 	for i := 0; i < len(runesA); i++ {
 		if runesA[i] != runesB[i] {
 			dist++
 		}
 	}
+
 	return dist, nil
 }
