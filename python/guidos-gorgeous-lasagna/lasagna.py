@@ -2,6 +2,7 @@ EXPECTED_BAKE_TIME = 40
 
 PREPARATION_TIME = 2
 
+
 def bake_time_remaining(elapsed_bake_time):
     '''
     :param elapsed_bake_time: int baking time already elapsed
@@ -14,6 +15,7 @@ def bake_time_remaining(elapsed_bake_time):
 
     return EXPECTED_BAKE_TIME - elapsed_bake_time
 
+
 def preparation_time_in_minutes(layers):
     '''
     :param layers: int number of layers
@@ -22,6 +24,7 @@ def preparation_time_in_minutes(layers):
     Function that takes the number of layers and returns the total minutes of preparation
     '''
     return PREPARATION_TIME * layers
+
 
 def elapsed_time_in_minutes(number_of_layers, elapsed_bake_time):
     '''
@@ -32,4 +35,3 @@ def elapsed_time_in_minutes(number_of_layers, elapsed_bake_time):
     Function that takes the number of layers and the elapsed time and returns the total elapsed time
     '''
     return preparation_time_in_minutes(number_of_layers) + elapsed_bake_time
-    
