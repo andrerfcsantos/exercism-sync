@@ -12,20 +12,6 @@ majorityFinder colors =
   match freqList with 
     []                                                             -> None
     [(m1, f)]                                                      -> Some m1
-    remainder ++ [(m2, f2), (m1, f1)] | (f1 != f2) && (f1 > (n/2)) -> Some m1
+    uncommon ++ [(m2, f2), (m1, f1)]  | (f1 != f2) && (f1 > (n/2)) -> Some m1
                                       | otherwise                  -> None
 
-
-structural ability Store where
-  put : a ->{Store a} ()
-  get : {Store a} a
-
-Store.runWith : a -> '{Store a, g} r -> {g} (a, r)
-Store.runWith elem storeFunction =
-  todo "optionally implement runWith handler if you choose to use the Store ability"
-
-unique type StoredState = Placeholder
-
-update : a -> '{Store StoredState} ()
-update currentElement _ =
-  todo "optionally implement update"
