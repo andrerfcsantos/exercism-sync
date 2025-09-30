@@ -1,7 +1,11 @@
 digits : Nat -> [Nat]
-digits = cases
-  0 -> []
-  n -> digits (Nat.div n  10) ++ [Nat.mod n 10]
+digits n = 
+  go : [Nat] -> Nat -> [Nat]
+  go accumulatedState = cases 
+    0 -> accumulatedState
+    n -> go (accumulatedState ++ [Nat.mod n 10]) (Nat.div n 10)
+
+  go [] n
 
 isArmstrongNumber : Nat -> Boolean
 isArmstrongNumber number =
