@@ -1,17 +1,8 @@
 static class LogLine
 {
-    public static string Message(string logLine)
-    {
-        return logLine.Split(": ")[1].Trim();
-    }
+    public static string Message(string logLine) => logLine.Split(": ")[1].Trim();
 
-    public static string LogLevel(string logLine)
-    {
-        return logLine.Split(": ")[0].Trim().Trim("[]".ToCharArray()).ToLower();
-    }
+    public static string LogLevel(string logLine) => logLine.Split(']')[0][1..^0].ToLower();
 
-    public static string Reformat(string logLine)
-    {
-        return $"{Message(logLine)} ({LogLevel(logLine)})";
-    }
+    public static string Reformat(string logLine) => $"{Message(logLine)} ({LogLevel(logLine)})";   
 }
