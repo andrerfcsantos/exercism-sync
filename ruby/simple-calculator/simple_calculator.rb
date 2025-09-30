@@ -12,16 +12,7 @@ class SimpleCalculator
       raise ArgumentError, 'Arguments must be numbers'
     end
 
-    result = begin
-      case operation
-      when '+'
-        first_operand + second_operand
-      when '/'
-        first_operand / second_operand
-      when '*'
-        first_operand * second_operand
-      end
-    end
+    result = first_operand.public_send(operation, second_operand)
 
     "#{first_operand} #{operation} #{second_operand} = #{result}"
   rescue ZeroDivisionError
