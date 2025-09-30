@@ -4,11 +4,11 @@ class LogLineParser
   end
 
   def message
-    @line.split(': ')[1].strip
+    @line.split(':', 2)[1].strip
   end
 
   def log_level
-    @line.split(': ')[0].delete('[]').downcase
+    @line.split(':', 2)[0].strip.delete_prefix('[').delete_suffix(']').downcase
   end
 
   def reformat
