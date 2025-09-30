@@ -13,6 +13,6 @@ func Age(seconds float64, planet Planet) float64 {
 		"Uranus":  84.016846,
 		"Neptune": 164.79132,
 	}
-
-	return (seconds / (365.0 * 24.0 * 60.0 * 60.0)) * table[planet]
+	years := float64(seconds) / float64(31557600)
+	return years / table[planet]
 }
