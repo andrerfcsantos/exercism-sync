@@ -1,7 +1,5 @@
-alphabet = set(['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'])
+alphabet = set('abcdefghijklmnopqrstuvwxyz')
 
 def is_pangram(sentence):
-    lowered = sentence.lower()
-    only_alphabet = filter(lambda x: x in alphabet, lowered)
-    chars_used = set("".join(only_alphabet))
+    chars_used = set(filter(lambda x: x in alphabet, sentence.lower()))
     return len(chars_used) == len(alphabet)
