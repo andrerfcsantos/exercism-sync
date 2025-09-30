@@ -1,7 +1,11 @@
+// Package space provides mehods around space math
 package space
 
+// Planet represents the name of a planet in the solar system
 type Planet string
 
+// Age computes the age in Earth years of someone in another planet
+// given the age in seconds
 func Age(seconds float64, planet Planet) float64 {
 	table := map[Planet]float64{
 		"Mercury": 0.2408467,
