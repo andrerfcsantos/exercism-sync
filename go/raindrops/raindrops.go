@@ -1,7 +1,8 @@
 package raindrops
 
-import "fmt"
+import "strconv"
 
+// Convert converts a number into a string that contains raindrop sounds
 func Convert(inp int) string {
 	res := ""
 
@@ -18,7 +19,7 @@ func Convert(inp int) string {
 	}
 
 	if res == "" {
-		res = fmt.Sprintf("%d", inp)
+		res = strconv.Itoa(inp)
 	}
 
 	return res
