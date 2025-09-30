@@ -1,10 +1,8 @@
 // Package raindrops is a small library for converting a number into pitterpatter.
 package raindrops
-
 import (
 	"strconv"
 )
-
 // BenchmarkConvert-12    	 3233023	       389.5 ns/op	      64 B/op	       4 allocs/op
 func dripping(wet *uint32, sound string, num int, divisor int) (drop string) {
 	if num%divisor == 0 {
@@ -13,7 +11,6 @@ func dripping(wet *uint32, sound string, num int, divisor int) (drop string) {
 	}
 	return drop
 }
-
 // Convert takes a number and converts it into pitterpatter.
 func Convert(num int) string {
 	var wet uint32 = 0
@@ -23,7 +20,6 @@ func Convert(num int) string {
 	}
 	return strconv.Itoa(num)
 }
-
 // // Package raindrops is a small library for converting a number into pitterpatter.
 // package raindrops
 // import "strconv"
