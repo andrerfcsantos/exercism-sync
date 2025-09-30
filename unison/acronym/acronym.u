@@ -2,7 +2,7 @@ use base
 
 abbreviate : Text -> Text
 abbreviate test = Text.toCharList test
-                    |> List.split (x -> (x == ?- || x == ?\s))
+                    |> List.split (x -> ((x == ?-) || (x == ?\s)))
                     |> List.map (List.filter Char.ascii.isLetter)
                     |> Optional.mapOptional List.head
                     |> List.map Char.ascii.toUpper
