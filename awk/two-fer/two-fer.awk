@@ -1,8 +1,6 @@
 #!/usr/bin/env gawk -f
 
-BEGIN {}
-
-{
+BEGIN {
     if ($0 == "") {
         print "One for you, one for me."
     } else {
