@@ -1,6 +1,6 @@
 package cards
 
-func validIndex(slice []int, index int) bool {
+func validIndex[T any](slice []T, index int) bool {
 	size := len(slice)
 	if index < 0 || index >= size {
 		return false
