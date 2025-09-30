@@ -14,12 +14,9 @@ var letterScore = map[rune]int{
 
 // Score gives the scrabble score for a word
 func Score(word string) int {
-	word = strings.ToUpper(word)
 	res := 0
-	for _, r := range word {
-		if s, ok := letterScore[r]; ok {
-			res += s
-		}
+	for _, r := range strings.ToUpper(word) {
+		res += letterScore[r]
 	}
 	return res
 }
