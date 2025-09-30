@@ -27,7 +27,7 @@ var conversions = []ConversionEntry{
 }
 
 func ToRomanNumeral(number int) (string, error) {
-	if number > 3000 {
+	if number >= 4000 {
 		return "", errors.New("arabic number is bigger than 3000")
 	}
 
