@@ -11,9 +11,12 @@ defaultIfEmpty default txt = match txt with
     txt -> txt
 
 convert : Nat -> Text
-convert n = List.filter (x -> (Nat.mod n (at1 x) == 0)) factorSounds
-                |> List.map at2
-                |> Text.join ""
-                |> defaultIfEmpty (Nat.toText n)
+convert n = 
+  factorSounds 
+    |> List.filterMap (cases
+        (m,s) | Nat.mod n m == 0 -> Some s
+              | otherwise        -> None)
+    |> Text.join ""
+    |> defaultIfEmpty (Nat.toText n)
 
 
