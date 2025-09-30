@@ -1,8 +1,9 @@
+// Package twofer provides a way to determine with you should sahre something
 package twofer
 
 import "fmt"
 
-// ShareWith tells who you should share with
+// ShareWith tells who you should share something with
 func ShareWith(name string) string {
 
 	if name == "" {
