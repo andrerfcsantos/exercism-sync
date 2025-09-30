@@ -1,5 +1,7 @@
 """Functions for creating, transforming, and adding prefixes to strings."""
 
+from typing import Sequence
+
 
 def add_prefix_un(word: str) -> str:
     """Take the given word and add the 'un' prefix.
@@ -11,7 +13,7 @@ def add_prefix_un(word: str) -> str:
     return 'un' + word
 
 
-def make_word_groups(vocab_words: list[str]) -> str:
+def make_word_groups(vocab_words: Sequence[str]) -> str:
     """Transform a list containing a prefix and words into a string with the prefix followed by the words with prefix prepended.
 
     :param vocab_words: list - of vocabulary words with prefix in first index.
