@@ -12,14 +12,15 @@ class SimpleCalculator
       raise ArgumentError, 'Arguments must be numbers'
     end
 
-    result = nil
-    case operation
-    when '+'
-      result = first_operand + second_operand
-    when '/'
-      result = first_operand / second_operand
-    when '*'
-      result = first_operand * second_operand
+    result = begin
+      case operation
+      when '+'
+        first_operand + second_operand
+      when '/'
+        first_operand / second_operand
+      when '*'
+        first_operand * second_operand
+      end
     end
 
     "#{first_operand} #{operation} #{second_operand} = #{result}"
