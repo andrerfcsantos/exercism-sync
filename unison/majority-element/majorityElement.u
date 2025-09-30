@@ -1,0 +1,33 @@
+unique type Color = Red | Orange | Yellow | Green | Blue | Purple
+
+majorityFinder : [Color] -> Optional Color
+majorityFinder colors = 
+  freqList = colors
+              |> Bag.fromList
+              |> occurrenceList
+              |> List.sortBy at2
+              |> List.reverse
+  
+  n = List.size colors
+
+  match freqList with 
+    []                                                             -> None
+    [(m1, f)]                         | f > (n / 2)                -> Some m1
+                                      | otherwise                  -> None
+    [(m1, f1), (m2, f2)] ++ remainder | (f1 != f2) && (f1 > (n/2)) -> Some m1
+                                      | otherwise                  -> None
+
+
+structural ability Store where
+  put : a ->{Store a} ()
+  get : {Store a} a
+
+Store.runWith : a -> '{Store a, g} r -> {g} (a, r)
+Store.runWith elem storeFunction =
+  todo "optionally implement runWith handler if you choose to use the Store ability"
+
+unique type StoredState = Placeholder
+
+update : a -> '{Store StoredState} ()
+update currentElement _ =
+  todo "optionally implement update"
