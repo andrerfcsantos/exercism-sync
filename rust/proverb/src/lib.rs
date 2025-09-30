@@ -5,7 +5,7 @@ pub fn build_proverb(list: &[&str]) -> String {
     }
 
     let mut phrases: Vec<String> = Vec::new();
-    for i in 0..list.len() - 1 {
+    for i in 0..n_elements - 1 {
         phrases.push(format!(
             "For want of a {} the {} was lost.",
             list[i],
