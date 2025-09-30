@@ -5,13 +5,13 @@ import "errors"
 type List struct {
 	head *Node
 	tail *Node
-	size  int
+	size int
 }
 
 type Node struct {
-	Value  interface{}
-	next *Node
-	prev *Node
+	Value interface{}
+	next  *Node
+	prev  *Node
 }
 
 var ErrEmptyList error = errors.New("empty list")
@@ -19,7 +19,7 @@ var ErrEmptyList error = errors.New("empty list")
 func NewList(args ...interface{}) *List {
 	l := &List{}
 	for _, arg := range args {
-		l.PushBack(arg)
+		l.Push(arg)
 	}
 	return l
 }
@@ -38,11 +38,11 @@ func (n *Node) Prev() *Node {
 	return n.prev
 }
 
-func (l *List) PushFront(v interface{}) {
+func (l *List) Unshift(v interface{}) {
 	newNode := &Node{
-		Value:  v,
-		next: l.head,
-		prev: nil,
+		Value: v,
+		next:  l.head,
+		prev:  nil,
 	}
 	if l.head != nil {
 		l.head.prev = newNode
@@ -54,11 +54,11 @@ func (l *List) PushFront(v interface{}) {
 	l.size++
 }
 
-func (l *List) PushBack(v interface{}) {
+func (l *List) Push(v interface{}) {
 	newNode := &Node{
-		Value:  v,
-		next: nil,
-		prev: l.tail,
+		Value: v,
+		next:  nil,
+		prev:  l.tail,
 	}
 	if l.tail != nil {
 		l.tail.next = newNode
@@ -70,7 +70,7 @@ func (l *List) PushBack(v interface{}) {
 	l.size++
 }
 
-func (l *List) PopFront() (interface{}, error) {
+func (l *List) Shift() (interface{}, error) {
 	oldHead := l.head
 	if oldHead == nil {
 		return nil, ErrEmptyList
@@ -88,7 +88,7 @@ func (l *List) PopFront() (interface{}, error) {
 	return oldHead.Value, nil
 }
 
-func (l *List) PopBack() (interface{}, error) {
+func (l *List) Pop() (interface{}, error) {
 	oldTail := l.tail
 	if oldTail == nil {
 		return nil, ErrEmptyList
