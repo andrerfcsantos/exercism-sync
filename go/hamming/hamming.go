@@ -14,7 +14,6 @@ func Distance(a, b string) (int, error) {
 		return 0, errors.New("cannot compute hamming distance for strings with different lengths")
 	}
 
-	
 	for i := 0; i < len(runesA); i++ {
 		if runesA[i] != runesB[i] {
 			dist++
