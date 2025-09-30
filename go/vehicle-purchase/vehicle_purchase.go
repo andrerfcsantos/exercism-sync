@@ -1,7 +1,7 @@
 package purchase
 
 // NeedsLicence determines whether a licence is need to drive a type of vehicle. Only "car" and "truck" require a licence.
-func NeedsLicence(kind string) bool {
+func NeedsLicense(kind string) bool {
 	return kind == "car" || kind == "truck"
 }
 
@@ -23,3 +23,4 @@ func CalculateResellPrice(originalPrice, age float64) float64 {
     }
 	return originalPrice * percent
 }
+
