@@ -9,11 +9,11 @@ type Clock struct {
 }
 
 func (c Clock) Subtract(minutes int) Clock {
-	return New(0, c.minutes - minutes)
+	return New(0, c.minutes-minutes)
 }
 
 func (c Clock) Add(minutes int) Clock {
-	return New(0, c.minutes + minutes)
+	return New(0, c.minutes+minutes)
 }
 
 func (c Clock) String() string {
@@ -22,12 +22,12 @@ func (c Clock) String() string {
 
 func New(hours int, minutes int) Clock {
 
-	time_to_add := (hours*60 + minutes) % MinutesDay
-	var finalminutes int
-	if time_to_add < 0 {
-		finalminutes = MinutesDay + time_to_add
+	timeToAdd := (hours*60 + minutes) % MinutesDay
+	var finalMinutes int
+	if timeToAdd < 0 {
+		finalMinutes = MinutesDay + timeToAdd
 	} else {
-		finalminutes = time_to_add
+		finalMinutes = timeToAdd
 	}
-	return Clock{minutes: finalminutes}
+	return Clock{minutes: finalMinutes}
 }
