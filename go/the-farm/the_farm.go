@@ -29,9 +29,9 @@ func DivideFood(weightFodder WeightFodder, cows int) (float64, error) {
 
 	switch {
 	case cows == 0:
-		return 0, errors.New("Division by zero")
+		return 0, errors.New("division by zero")
 	case f < 0:
-		return 0, errors.New("Negative fodder")
+		return 0, errors.New("negative fodder")
 	case cows < 0:
 		return 0, SillyNephewError{cows: cows}
 	}
