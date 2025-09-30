@@ -1,0 +1,86 @@
+use base.test.Test
+
+acronym.test.basic = verify do
+  labeled "basic" do
+    expected = "PNG"
+    actual = abbreviate "Portable Network Graphics"
+    label "expected" expected
+    label "actual" actual
+    ensureEqual actual expected
+
+acronym.test.lowercaseWords = verify do
+  labeled "lowercase words" do
+    expected = "ROR"
+    actual = abbreviate "Ruby on Rails"
+    label "expected" expected
+    label "actual" actual
+    ensureEqual actual expected
+
+acronym.test.punctuation = verify do
+  labeled "punctuation" do
+    expected = "FIFO"
+    actual = abbreviate "First In, First Out"
+    label "expected" expected
+    label "actual" actual
+    ensureEqual actual expected
+
+acronym.test.allCapsWord = verify do
+  labeled "all caps word" do
+    expected = "GIMP"
+    actual = abbreviate "GNU Image Manipulation Program"
+    label "expected" expected
+    label "actual" actual
+    ensureEqual actual expected
+
+acronym.test.punctuationWithoutWhitespace = verify do
+  labeled "punctuation without whitespace" do
+    expected = "CMOS"
+    actual = abbreviate "Complementary metal-oxide semiconductor"
+    label "expected" expected
+    label "actual" actual
+    ensureEqual actual expected
+
+acronym.test.veryLongAbbreviation = verify do
+  labeled "very long abbreviation" do
+    expected = "ROTFLSHTMDCOALM"
+    actual = abbreviate "Rolling On The Floor Laughing So Hard That My Dogs Came Over And Licked Me"
+    label "expected" expected
+    label "actual" actual
+    ensureEqual actual expected
+
+acronym.test.consecutiveDelimiters = verify do
+  labeled "consecutive delimiters" do
+    expected = "SIMUFTA"
+    actual = abbreviate "Something - I made up from thin air"
+    label "expected" expected
+    label "actual" actual
+    ensureEqual actual expected
+
+acronym.test.apostrophes = verify do
+  labeled "apostrophes" do
+    expected = "HC"
+    actual = abbreviate "Halley's Comet"
+    label "expected" expected
+    label "actual" actual
+    ensureEqual actual expected
+
+acronym.test.underscoreEmphasis = verify do
+  labeled "underscore emphasis" do
+    expected = "TRNT"
+    actual = abbreviate "The Road _Not_ Taken"
+    label "expected" expected
+    label "actual" actual
+    ensureEqual actual expected
+
+test> acronym.tests =
+  join [
+    acronym.test.basic,
+    acronym.test.lowercaseWords,
+    acronym.test.punctuation,
+    acronym.test.allCapsWord,
+    acronym.test.punctuationWithoutWhitespace,
+    acronym.test.veryLongAbbreviation,
+    acronym.test.consecutiveDelimiters,
+    acronym.test.apostrophes,
+    acronym.test.underscoreEmphasis
+  ]
