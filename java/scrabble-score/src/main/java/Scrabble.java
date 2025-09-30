@@ -5,7 +5,7 @@ import static java.util.Map.entry;
 
 class Scrabble {
 
-    public static Map<Character, Integer> LETTER_POINTS = Map.ofEntries(
+    public static final Map<Character, Integer> LETTER_POINTS = Map.ofEntries(
             entry('A', 1), entry('E', 1), entry('I', 1), entry('O', 1),
             entry('U', 1), entry('L', 1), entry('N', 1), entry('R', 1),
             entry('S', 1), entry('T', 1), entry('D', 2), entry('G', 2),
