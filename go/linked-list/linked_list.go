@@ -5,7 +5,7 @@ import "errors"
 type List struct {
 	head *Node
 	tail *Node
-	len  int
+	size  int
 }
 
 type Node struct {
@@ -51,7 +51,7 @@ func (l *List) PushFront(v interface{}) {
 	if l.tail == nil {
 		l.tail = l.head
 	}
-	l.len++
+	l.size++
 }
 
 func (l *List) PushBack(v interface{}) {
@@ -67,7 +67,7 @@ func (l *List) PushBack(v interface{}) {
 	if l.head == nil {
 		l.head = l.tail
 	}
-	l.len++
+	l.size++
 }
 
 func (l *List) PopFront() (interface{}, error) {
@@ -84,7 +84,7 @@ func (l *List) PopFront() (interface{}, error) {
 		l.head.prev = nil
 	}
 
-	l.len--
+	l.size--
 	return oldHead.Val, nil
 }
 
@@ -102,7 +102,7 @@ func (l *List) PopBack() (interface{}, error) {
 		l.tail.next = nil
 	}
 
-	l.len--
+	l.size--
 	return oldTail.Val, nil
 }
 
