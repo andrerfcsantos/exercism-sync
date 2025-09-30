@@ -36,9 +36,8 @@ func KindFromSides(a, b, c float64) Kind {
 	if a == b || b == c || c == a {
 		if a == b && b == c {
 			return Equ
-		} else {
-			return Iso
 		}
+		return Iso
 	}
 
 	return Sca
