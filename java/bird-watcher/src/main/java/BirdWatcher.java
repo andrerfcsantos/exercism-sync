@@ -11,19 +11,19 @@ class BirdWatcher {
     }
 
     public int getToday() {
-        if (birdsPerDay.length-1 < 0) {
+        if (birdsPerDay.length - 1 < 0) {
             return 0;
         }
 
-        return birdsPerDay[birdsPerDay.length-1];
+        return birdsPerDay[birdsPerDay.length - 1];
     }
 
     public void incrementTodaysCount() {
-        birdsPerDay[birdsPerDay.length-1] += 1;
+        birdsPerDay[birdsPerDay.length - 1] += 1;
     }
 
     public boolean hasDayWithoutBirds() {
-        for(int n: birdsPerDay) {
+        for (int n : birdsPerDay) {
             if (n == 0) {
                 return true;
             }
@@ -33,7 +33,7 @@ class BirdWatcher {
 
     public int getCountForFirstDays(int numberOfDays) {
         int sum = 0;
-        for(int i=0; i < numberOfDays && i < birdsPerDay.length; i++) {
+        for (int i = 0; i < numberOfDays && i < birdsPerDay.length; i++) {
             sum += birdsPerDay[i];
         }
         return sum;
@@ -43,9 +43,9 @@ class BirdWatcher {
 
         int busyDays = 0;
 
-        for(int n: birdsPerDay) {
+        for (int n : birdsPerDay) {
             if (n >= 5) {
-                busyDays+=1;
+                busyDays += 1;
             }
         }
 
