@@ -9,7 +9,7 @@ type List struct {
 }
 
 type Node struct {
-	Val  interface{}
+	Value  interface{}
 	next *Node
 	prev *Node
 }
@@ -40,7 +40,7 @@ func (n *Node) Prev() *Node {
 
 func (l *List) PushFront(v interface{}) {
 	newNode := &Node{
-		Val:  v,
+		Value:  v,
 		next: l.head,
 		prev: nil,
 	}
@@ -56,7 +56,7 @@ func (l *List) PushFront(v interface{}) {
 
 func (l *List) PushBack(v interface{}) {
 	newNode := &Node{
-		Val:  v,
+		Value:  v,
 		next: nil,
 		prev: l.tail,
 	}
@@ -85,7 +85,7 @@ func (l *List) PopFront() (interface{}, error) {
 	}
 
 	l.size--
-	return oldHead.Val, nil
+	return oldHead.Value, nil
 }
 
 func (l *List) PopBack() (interface{}, error) {
@@ -103,7 +103,7 @@ func (l *List) PopBack() (interface{}, error) {
 	}
 
 	l.size--
-	return oldTail.Val, nil
+	return oldTail.Value, nil
 }
 
 func (l *List) Reverse() {
